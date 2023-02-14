@@ -14,4 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HotShop.unity
     guid: b25d42c1e0c025f47bf34330599b1501
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b89ddd0539180ee44aa6ca7f0d09f483,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2c2ba99356722ca48b1bfe10d580656e,
+      type: 2}
