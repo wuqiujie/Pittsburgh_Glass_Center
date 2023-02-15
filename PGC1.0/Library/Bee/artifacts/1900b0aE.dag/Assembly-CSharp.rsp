@@ -547,6 +547,10 @@
 "Assets/Oculus/Voice/Lib/Wit.ai/AssemblyInfo.cs"
 "Assets/Script/ChangeScene.cs"
 "Assets/Script/GameManager.cs"
+"Assets/Script/GlassMatController.cs"
+"Assets/Script/InstructionController.cs"
+"Assets/Script/Interactable/StrawController.cs"
+"Assets/Script/PipeController.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 

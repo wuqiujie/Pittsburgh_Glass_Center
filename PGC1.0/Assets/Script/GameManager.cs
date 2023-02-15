@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
-    //GameScene
-    public GameObject Furnace;
-    public GameObject GloryHole;
-    public GameObject ColorTable;
-    public GameObject Marver;
-    public GameObject Bat;
-    public GameObject Seat;
-    public GameObject Cooler;
+    public static GameManager Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
 
 
-
-
-    public GameState state;
+    public GameState currentState;
     public enum GameState
     {   
         GameStart,
@@ -30,36 +24,42 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        state = GameState.GameStart;
+        currentState = GameState.GameStart;
 
     }
+    //GameScene
+    public GameObject Furnace;
+    public GameObject GloryHole;
+    public GameObject ColorTable;
+    public GameObject Marver;
+    public GameObject Bat;
+    public GameObject Seat;
+    public GameObject Cooler;
 
 
-    void Update()
+    void SwitchState(GameState newState)
     {
-        Debug.Log("state: " + state);
-        if( state == GameState.Furnace)
+       switch (newState)
         {
-            gatherGlassFromFurnace();
-        }
+            case GameState.Furnace:
+                gatherGlassFromFurnace();
+                break;
+            case GameState.ColorTable:
+                dipIntoColor();
+                break;
+            case GameState.GloryHole:
+                heatTheGlass();
+                break;
 
-        if( state == GameState.ColorTable)
-        {
-            dipIntoColor();
+            case GameState.Blow:
+                blowGlass();
+                break;
+
+            case GameState.GameEnd:
+                gameEnd();
+                break;
         }
-        if ( state == GameState.GloryHole)
-        {
-            heatTheGlass();
-        }  
-        if ( state == GameState.Blow)
-        {
-            blowGlass();
-        }
-        
-        if( state == GameState.GameEnd)
-        {
-            gameEnd();
-        }
+        currentState = newState;
      }
 
     void gatherGlassFromFurnace()
