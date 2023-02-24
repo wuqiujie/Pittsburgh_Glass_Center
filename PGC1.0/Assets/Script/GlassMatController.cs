@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GlassMatController : MonoBehaviour
 {
+
+
     // private Material _mat;
     // private float _emissionGradient;
     // private Color _color1;
@@ -18,8 +20,7 @@ public class GlassMatController : MonoBehaviour
     private InstructionController _instructionController;
 
     private int _colorIndex;
-
-    public bool getColor = false;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +42,6 @@ public class GlassMatController : MonoBehaviour
         if(color != Color.black)
         {
             _colorIndex++;
-            if(_colorIndex == 2)
-            {
-                getColor = true;
-            }
             Debug.Log(_colorIndex);
             switch (_colorIndex)
             {
@@ -53,6 +50,7 @@ public class GlassMatController : MonoBehaviour
                     break;
                 case 2:
                     material.SetColor("_Color2", color);
+                   // SwitchState();
                     break;
                 default:
                     break;
@@ -95,6 +93,28 @@ public class GlassMatController : MonoBehaviour
         }
         else
             return Color.black;
+    }
+
+    public IEnumerator LerpEmission(GameObject glass, float startVal, float endVal, float duration)
+    {
+        float time = 0;
+        Material newMat = Instantiate(glass.GetComponent<MeshRenderer>().material);
+        glass.GetComponent<MeshRenderer>().material = newMat;
+        while (time < duration)
+        {
+            float emissionVal = Mathf.Lerp(startVal, endVal, time / duration);
+            newMat.SetFloat("_EmissionGradient", emissionVal);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        newMat.SetFloat("_EmissionGradient", endVal);
+    }
+
+    public void reduceEmission(GameObject glass)
+    {
+        float newEmission= glass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient")-0.00005f;
+        glass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", newEmission);
     }
 
 

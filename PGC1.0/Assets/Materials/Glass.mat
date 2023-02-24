@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Glass
-  m_Shader: {fileID: -6465566751694194690, guid: 774c6603bd9dd2e4492e0a79cafca9b1, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 774c6603bd9dd2e4492e0a79cafca9b1,
+    type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -67,7 +68,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _EmissionGradient: 0.37
+    - _EmissionGradient: 0.4
     - _FresnelPower: 1.039
     - _IOR: -0.9
     - _QueueControl: 0

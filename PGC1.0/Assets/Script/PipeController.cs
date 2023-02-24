@@ -10,18 +10,30 @@ public class PipeController : MonoBehaviour
     private InstructionController _instructionController;
     private Material _glassMat;
 
+
+    public bool heating = false;
+    public GameObject Gloryhole;
+    private float curremission;
+
+
     // Start is called before the first frame update
     void Start()
     {
         _glassMatController = FindObjectOfType<GlassMatController>();
         _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
         _instructionController = FindObjectOfType<InstructionController>();
+        curremission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // _instructionController.SetTextContent("current emission " + curremission);
+        if (moltenGlass.GetComponent<MeshRenderer>().enabled && curremission >=0.06f && heating ==false)
+        {
+            _glassMatController.reduceEmission(moltenGlass);
+          
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,11 +41,38 @@ public class PipeController : MonoBehaviour
         if (other.tag == "furnace")
         {
             moltenGlass.GetComponent<MeshRenderer>().enabled = true;
-            _instructionController.SetTextContent("Molten glass is got");
+            heating = true;
+            _instructionController.SetTextContent("You got Molten glass");
         }
-        else
+        if (other.tag == "gloryhole")
+        {
+            heating = true;
+            // Gloryhole.GetComponent<GloryHoleController>().enabled = true;
+            // moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 1);
+            StartCoroutine(_glassMatController.LerpEmission(moltenGlass, curremission, 0.5f, 3));
+            _instructionController.SetTextContent("You reheat Molten glass,stay 3s");
+        }
+        //if (other.tag == "colortable")
+        if (other.tag == "red" || other.tag == "green" || other.tag == "purple" || other.tag == "yellow" || other.tag == "blue")
         {
             _glassMatController.SetMatColor(_glassMat, other);
+            //_instructionController.SetTextContent("Got color " + other.tag);
+        }
+ 
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if(other .tag == "furnace")
+        {
+            //_glassMatController.reduceEmission(moltenGlass);
+            heating = false;
+        }
+
+        if (other.tag == "gloryhole")
+        {
+           // _glassMatController.reduceEmission(moltenGlass);
+            heating = false;
         }
     }
 }

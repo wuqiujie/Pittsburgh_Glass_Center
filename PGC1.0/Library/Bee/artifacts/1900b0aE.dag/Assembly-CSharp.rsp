@@ -548,6 +548,7 @@
 "Assets/Script/ChangeScene.cs"
 "Assets/Script/GameManager.cs"
 "Assets/Script/GlassMatController.cs"
+"Assets/Script/GloryHoleController.cs"
 "Assets/Script/InstructionController.cs"
 "Assets/Script/Interactable/StrawController.cs"
 "Assets/Script/PipeController.cs"

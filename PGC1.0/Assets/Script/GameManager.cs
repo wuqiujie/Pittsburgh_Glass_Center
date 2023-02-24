@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public GameObject Cooler;
 
 
-    void SwitchState(GameState newState)
+    public void SwitchState(GameState newState)
     {
        switch (newState)
         {
@@ -61,6 +61,11 @@ public class GameManager : MonoBehaviour
         }
         currentState = newState;
      }
+
+    private void Update()
+    {
+        Debug.Log("state :" + currentState);
+    }
 
     void gatherGlassFromFurnace()
     {
