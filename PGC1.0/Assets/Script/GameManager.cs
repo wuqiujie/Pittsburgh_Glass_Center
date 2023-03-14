@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         GloryHole,
         Blowing,
         BlowFinish,
+        Bat,
         GameEnd
     }
 

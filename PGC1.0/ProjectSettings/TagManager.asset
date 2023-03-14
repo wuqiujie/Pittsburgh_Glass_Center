@@ -13,6 +13,9 @@ TagManager:
   - blue
   - yellow
   - gloryhole
+  - left
+  - right
+  - pipe
   layers:
   - Default
   - TransparentFX

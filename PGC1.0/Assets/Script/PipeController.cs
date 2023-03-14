@@ -30,6 +30,7 @@ public class PipeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        curremission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
         // _instructionController.SetTextContent("current emission " + curremission);
         if (moltenGlass.GetComponent<MeshRenderer>().enabled 
             && curremission >=0.06f

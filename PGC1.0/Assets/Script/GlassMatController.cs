@@ -109,7 +109,7 @@ public class GlassMatController : MonoBehaviour
 
     public void reduceEmission(GameObject glass)
     {
-        float newEmission= glass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient")-0.00005f;
+        float newEmission= glass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient")-0.0001f;
         glass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", newEmission);
     }
 
