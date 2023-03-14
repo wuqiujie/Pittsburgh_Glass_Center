@@ -15,6 +15,7 @@ public class StrawController : MonoBehaviour
     public GlassMatController glassMatController;
 
     private InstructionController _instructionController;
+    private GameManager _gameManager;
     //private PipeController _pipeController;
 
     // public GameObject pipe;
@@ -24,7 +25,8 @@ public class StrawController : MonoBehaviour
     {
         moltenGlass = GameObject.FindGameObjectWithTag("glass");
         _instructionController = FindObjectOfType<InstructionController>();
-       // _pipeController = FindObjectOfType<PipeController>();
+        _gameManager = FindObjectOfType<GameManager>();
+        // _pipeController = FindObjectOfType<PipeController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +40,7 @@ public class StrawController : MonoBehaviour
                 StopCoroutine(blowingSmaller);
                 blowingSmaller = null;
             }
+            _gameManager.SetState(GameManager.GameState.Blowing);
             _instructionController.SetTextContent("Blowing...");
             blowingBigger = LerpScale(sphere, sphere.transform.localScale, new Vector3(0.5f, 0.5f, 0.5f), 3);
             StartCoroutine(blowingBigger);
@@ -57,6 +60,7 @@ public class StrawController : MonoBehaviour
                 blowingBigger = null;
             }
             _instructionController.SetTextContent("Blow Finished.");
+            _gameManager.SetState(GameManager.GameState.BlowFinish);
             StartCoroutine(LerpScale(sphere, sphere.transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), 3));
             float currentEmission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
             StartCoroutine(glassMatController.LerpEmission(moltenGlass, currentEmission, 0.37f, 3));

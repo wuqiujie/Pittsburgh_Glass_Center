@@ -9,6 +9,7 @@ public class PipeController : MonoBehaviour
     private GlassMatController _glassMatController;
     private InstructionController _instructionController;
     private Material _glassMat;
+    private GameManager _gameManager;
 
 
     public bool heating = false;
@@ -23,13 +24,17 @@ public class PipeController : MonoBehaviour
         _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
         _instructionController = FindObjectOfType<InstructionController>();
         curremission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         // _instructionController.SetTextContent("current emission " + curremission);
-        if (moltenGlass.GetComponent<MeshRenderer>().enabled && curremission >=0.06f && heating ==false)
+        if (moltenGlass.GetComponent<MeshRenderer>().enabled 
+            && curremission >=0.06f
+            && heating ==false
+            && _gameManager.currentState!= GameManager.GameState.Blowing)
         {
             _glassMatController.reduceEmission(moltenGlass);
           
@@ -67,12 +72,14 @@ public class PipeController : MonoBehaviour
         {
             //_glassMatController.reduceEmission(moltenGlass);
             heating = false;
+            _gameManager.SetState(GameManager.GameState.Furnace);     
         }
 
         if (other.tag == "gloryhole")
         {
            // _glassMatController.reduceEmission(moltenGlass);
             heating = false;
+            _gameManager.SetState(GameManager.GameState.GloryHole);
         }
     }
 }

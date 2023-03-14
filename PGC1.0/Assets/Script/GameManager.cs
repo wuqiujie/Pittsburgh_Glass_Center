@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
         Furnace,
         ColorTable,
         GloryHole,
-        Blow,
+        Blowing,
+        BlowFinish,
         GameEnd
     }
 
@@ -35,8 +36,16 @@ public class GameManager : MonoBehaviour
     public GameObject Bat;
     public GameObject Seat;
     public GameObject Cooler;
+    public void SetState(GameState newState)
+    {
+        currentState = newState;
+    }
+    private void Update()
+    {
+        Debug.Log("state :" + currentState);
+    }
 
-
+    /*
     public void SwitchState(GameState newState)
     {
        switch (newState)
@@ -61,11 +70,7 @@ public class GameManager : MonoBehaviour
         }
         currentState = newState;
      }
-
-    private void Update()
-    {
-        Debug.Log("state :" + currentState);
-    }
+    
 
     void gatherGlassFromFurnace()
     {
@@ -90,7 +95,7 @@ public class GameManager : MonoBehaviour
     {
 
     }
-
+    */
 
 
 

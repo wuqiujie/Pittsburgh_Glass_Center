@@ -22,6 +22,7 @@ public class GlassMatController : MonoBehaviour
     private int _colorIndex;
    
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +30,7 @@ public class GlassMatController : MonoBehaviour
         _instructionController = FindObjectOfType<InstructionController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
-
+   
     public Material SetMatColor(Material material, Collider other)
     {
         Color color = PickColor(other);
