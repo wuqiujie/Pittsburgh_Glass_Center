@@ -56,14 +56,45 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers_SpecialCase\SpecialCasePropertyDrawerBase.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\Utility\SavedBool.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\OVROverlayCanvas\Editor\OVROverlayCanvasEditor.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\DecoratorDrawers\HorizontalLineDecoratorDrawer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Editor\OculusSampleFrameworkUtil.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\Utility\PropertyUtility.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\ExpandablePropertyDrawer.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\NaughtyInspector.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyValidators\PropertyValidatorBase.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\ResizableTextAreaPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\AllowNestingPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\Utility\NaughtyEditorGUI.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyValidators\RequiredPropertyValidator.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Editor\BuildAssetPackages.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\ProgressBarPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\EnumFlagsPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\SortingLayerPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\AnimatorParamPropertyDrawer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Editor\AndroidVideoEditorUtil.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\LayerPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\ShowAssetPreviewPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyValidators\MaxValuePropertyValidator.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\DropdownPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\TagPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\InputAxisPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\CurveRangePropertyDrawer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Editor\BuildSamples.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers_SpecialCase\ReorderableListPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\PropertyDrawerBase.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyValidators\MinValuePropertyValidator.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyValidators\ValidateInputPropertyValidator.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Gradle\Editor\Utils.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\ScenePropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\Utility\ButtonUtility.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\DecoratorDrawers\InfoBoxDecoratorDrawer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Firebase\Editor\FirebaseEnabler.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\PropertyDrawers\MinMaxSliderPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Editor\Utility\ReflectionUtility.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\Editor\TeleportTransitionWarpInspector.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Editor\MediaPlayerImageEditor.cs" />
   </ItemGroup>

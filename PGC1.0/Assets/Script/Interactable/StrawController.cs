@@ -11,6 +11,7 @@ public class StrawController : MonoBehaviour
     private IEnumerator blowingBigger;
     private IEnumerator blowingSmaller;
     private GameObject moltenGlass;
+    //public GameObject cable;
 
     public GlassMatController glassMatController;
 
@@ -27,6 +28,11 @@ public class StrawController : MonoBehaviour
         _instructionController = FindObjectOfType<InstructionController>();
         _gameManager = FindObjectOfType<GameManager>();
         // _pipeController = FindObjectOfType<PipeController>();
+       
+    }
+    private void Update()
+    {
+        GetComponent<BoxCollider>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,9 +46,10 @@ public class StrawController : MonoBehaviour
                 StopCoroutine(blowingSmaller);
                 blowingSmaller = null;
             }
+           // cable.SetActive(true);
             _gameManager.SetState(GameManager.GameState.Blowing);
             _instructionController.SetTextContent("Blowing...");
-            blowingBigger = LerpScale(sphere, sphere.transform.localScale, new Vector3(0.5f, 0.5f, 0.5f), 3);
+            blowingBigger = LerpScale(sphere, sphere.transform.localScale, new Vector3(0.2f, 0.2f, 0.2f), 5);
             StartCoroutine(blowingBigger);
             float currentEmission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
             StartCoroutine(glassMatController.LerpEmission(moltenGlass, currentEmission, 0.015f, 3));
@@ -54,16 +61,19 @@ public class StrawController : MonoBehaviour
         if (other.tag == "MainCamera")
         {
           //  _pipeController.heating = false;
-            if (blowingBigger != null)
+         /*   if (blowingBigger != null)
             {
                 StopCoroutine(blowingBigger);
                 blowingBigger = null;
             }
+         */
+           // cable.SetActive(false);
             _instructionController.SetTextContent("Blow Finished.");
             _gameManager.SetState(GameManager.GameState.BlowFinish);
-            StartCoroutine(LerpScale(sphere, sphere.transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), 3));
+            _gameManager.SetState(GameManager.GameState.Bat);
+            // StartCoroutine(LerpScale(sphere, sphere.transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), 3));
             float currentEmission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
-            StartCoroutine(glassMatController.LerpEmission(moltenGlass, currentEmission, 0.37f, 3));
+            // StartCoroutine(glassMatController.LerpEmission(moltenGlass, currentEmission, 0.37f, 3));
         }
     }
 

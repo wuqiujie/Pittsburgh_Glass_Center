@@ -21,7 +21,7 @@ public class PipeController : MonoBehaviour
     void Start()
     {
         _glassMatController = FindObjectOfType<GlassMatController>();
-        _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
+       
         _instructionController = FindObjectOfType<InstructionController>();
         curremission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
         _gameManager = FindObjectOfType<GameManager>();
@@ -61,6 +61,7 @@ public class PipeController : MonoBehaviour
         //if (other.tag == "colortable")
         if (other.tag == "red" || other.tag == "green" || other.tag == "purple" || other.tag == "yellow" || other.tag == "blue")
         {
+            _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
             _glassMatController.SetMatColor(_glassMat, other);
             //_instructionController.SetTextContent("Got color " + other.tag);
         }
