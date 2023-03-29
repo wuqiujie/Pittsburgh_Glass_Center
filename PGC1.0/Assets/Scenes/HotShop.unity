@@ -99,7 +99,8 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: a104f816bb230444db749caba478c957,
     type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 406ac88c03f8dca418004ce156b71240,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4704,8 +4705,8 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 10, y: 10, z: 10}
-  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_BoxSize: {x: 5.7175813, y: 5.5290594, z: 6.2092586}
+  m_BoxOffset: {x: 1.6562088, y: 2.2354703, z: -0.3623011}
   m_NearClip: 0.3
   m_FarClip: 1000
   m_ShadowDistance: 100
@@ -8613,8 +8614,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9056921, y: 1.2239609, z: 1}
+  m_Center: {x: -0.04715395, y: 0.40723184, z: 0}
 --- !u!1 &1918900398
 GameObject:
   m_ObjectHideFlags: 0
@@ -14049,8 +14050,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.181263, y: 0.7361657, z: 1.4488744}
-  m_Center: {x: 0, y: 0.36808285, z: 0}
+  m_Size: {x: 1.181263, y: 1.1465282, z: 1.4488744}
+  m_Center: {x: 0, y: 0.5732641, z: 0}
 --- !u!114 &4519593700348032222
 MonoBehaviour:
   m_ObjectHideFlags: 0
