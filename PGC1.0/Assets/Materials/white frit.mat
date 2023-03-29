@@ -8,9 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: white frit
-  m_Shader: {fileID: -6465566751694194690, guid: e09d7b0748a91a144903fe9c770ba39a, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
+  m_Shader: {fileID: -6465566751694194690, guid: 9d403d00b2e9ab94a965e3b5e331c8c6,
+    type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 6
@@ -19,7 +18,6 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -68,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMapping_17c97c0a838b4bd9a8baa31fb4b77d32_Heightmap_1:
-        m_Texture: {fileID: 2800000, guid: e2b986c5f1a0a8b499ac72af55922a0d, type: 3}
+        m_Texture: {fileID: 2800000, guid: abc34344414117a409b84f6b0ed464f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxOcclusionMapping_a044fafb9eeb4813a567077dfc90bd08_Heightmap_2:
@@ -80,7 +78,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_04d1aa02623042ed865e9b02a3e67cb6_Texture_1:
-        m_Texture: {fileID: 2800000, guid: bf933c04cf6e18145a92f355a03aa258, type: 3}
+        m_Texture: {fileID: 2800000, guid: fb3f9f4250e388e4582d92733c817674, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_20948e6f3ed7456f99367d0c5acd43f6_Texture_1:
@@ -88,11 +86,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_a4b8e2002481431eb1a11fc880d78939_Texture_1:
-        m_Texture: {fileID: 2800000, guid: bcd8761a93094e6489d772efbb2a0eca, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5155c23519ec2e94eb30ee1bd59fac2b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_e8cfce6d0e2c483d82c8ff1c96c600bd_Texture_1:
-        m_Texture: {fileID: 2800000, guid: bf0e0d6375df4744c9dad1d923f74381, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6e468741fc1e1094b878baa9d85b10ef, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_f3670adc52bc4f8da6bb595529298b78_Texture_1:
@@ -100,7 +98,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_fc7bddf696a5439fb761ad03e553732e_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 85216b1150a3f34428deb96e94994a04, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9d41b80c99c9127429b574c80a28a3a9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -148,7 +146,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Shadow_Power: 10
+    - _Shadow_Power: 5
     - _Smoothness: 0.95
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

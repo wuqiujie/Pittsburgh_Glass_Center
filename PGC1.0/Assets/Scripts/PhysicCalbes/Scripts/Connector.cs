@@ -133,6 +133,7 @@ namespace HPhysic
                 if (TryGetComponent(out Collider collider))
                     collider.enabled = !IsConnected;
             }
+            GetComponent<BoxCollider>().enabled = true;
         }
 
 

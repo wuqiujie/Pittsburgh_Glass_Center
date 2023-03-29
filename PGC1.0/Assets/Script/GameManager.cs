@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {   
         GameStart,
-        Furnace,
+        FurnaceStart,
+        FurnaceEnd,
+        GloryHoleStart,
+        GloryHoleEnd,
         ColorTable,
-        GloryHole,
+        BlowStart,
         Blowing,
         BlowFinish,
         Bat,

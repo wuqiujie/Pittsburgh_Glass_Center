@@ -46,9 +46,6 @@ public class BatController : MonoBehaviour
     public void adjustPipeRotation()
     {
         pipe.transform.position = new Vector3(7.251f, 2.63f, 2.542f);
-        // Quaternion target = Quaternion.Euler(-180, 0, 0);
-        // float smooth = 5.0f;
-        // pipe.transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
         pipe.transform.rotation = Quaternion.Euler(-180, 0, 0);
         currentState = BatState.hit;
     }

@@ -49,17 +49,21 @@ public class PipeController : MonoBehaviour
             moltenGlass.GetComponent<MeshRenderer>().enabled = true;
             heating = true;
             _instructionController.SetTextContent("You got Molten glass");
+            _gameManager.SetState(GameManager.GameState.FurnaceStart);
         }
         if (other.tag == "gloryhole")
         {
             heating = true;
+            Debug.Log("gloryhole");
             // Gloryhole.GetComponent<GloryHoleController>().enabled = true;
             // moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 1);
-            StartCoroutine(_glassMatController.LerpEmission(moltenGlass, curremission, 0.5f, 3));
+            //StartCoroutine(_glassMatController.LerpEmission(moltenGlass, curremission, 0.5f, 3));
+            moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 0.5f);
             _instructionController.SetTextContent("You reheat Molten glass,stay 3s");
+            _gameManager.SetState(GameManager.GameState.GloryHoleStart);
         }
-        //if (other.tag == "colortable")
-        if (other.tag == "red" || other.tag == "green" || other.tag == "purple" || other.tag == "yellow" || other.tag == "blue")
+       
+        if (other.tag == "red" || other.tag == "green" || other.tag == "purple" || other.tag == "yellow" || other.tag == "blue" || other.tag == "white")
         {
             _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
             _glassMatController.SetMatColor(_glassMat, other);
@@ -72,16 +76,14 @@ public class PipeController : MonoBehaviour
     {
         if(other .tag == "furnace")
         {
-            //_glassMatController.reduceEmission(moltenGlass);
             heating = false;
-            _gameManager.SetState(GameManager.GameState.Furnace);     
+            _gameManager.SetState(GameManager.GameState.FurnaceEnd);     
         }
 
         if (other.tag == "gloryhole")
         {
-           // _glassMatController.reduceEmission(moltenGlass);
             heating = false;
-            _gameManager.SetState(GameManager.GameState.GloryHole);
+            _gameManager.SetState(GameManager.GameState.GloryHoleEnd);
         }
     }
 }

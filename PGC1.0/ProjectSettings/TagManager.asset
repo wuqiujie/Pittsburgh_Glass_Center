@@ -16,6 +16,7 @@ TagManager:
   - left
   - right
   - pipe
+  - white
   layers:
   - Default
   - TransparentFX

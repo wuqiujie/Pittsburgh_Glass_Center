@@ -16,6 +16,7 @@ public class GlassMatController : MonoBehaviour
     [SerializeField] private Color Yellow;
     [SerializeField] private Color Green;
     [SerializeField] private Color Purple;
+    [SerializeField] private Color White;
 
     private InstructionController _instructionController;
 
@@ -83,6 +84,10 @@ public class GlassMatController : MonoBehaviour
                     Debug.Log("pick purple");
                     _instructionController.SetTextContent("Purple picked.");
                     return Purple;
+                case "white":
+                    Debug.Log("pick white");
+                    _instructionController.SetTextContent("White picked.");
+                    return White;
                 default:
                     return Color.black;
             }

@@ -169,6 +169,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandlerHMD.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Core\MetaAttributes\IGroupAttribute.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\HandsActiveChecker.cs" />
+    <Compile Include="Assets\Script\BatStart.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\BouncingBallMgr.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\PhysicCableCon.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\_TestScriptableObjectA.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimVisualLaser.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Core\DrawerAttributes\LayerAttribute.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\BoxGroupTest.cs" />
+    <Compile Include="Assets\Script\BlowingController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\MoviePlayerSample.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\ValidateInputTest.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\TouchPro\Scripts\Haptics\LocalizedHaptics.cs" />

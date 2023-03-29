@@ -11,48 +11,33 @@ public class StrawController : MonoBehaviour
     private IEnumerator blowingBigger;
     private IEnumerator blowingSmaller;
     private GameObject moltenGlass;
-    //public GameObject cable;
+   
 
     public GlassMatController glassMatController;
-
-    private InstructionController _instructionController;
+  
     private GameManager _gameManager;
-    //private PipeController _pipeController;
+    private BlowingController _blowController;
 
-    // public GameObject pipe;
-
-    // Start is called before the first frame update
     void Start()
     {
         moltenGlass = GameObject.FindGameObjectWithTag("glass");
-        _instructionController = FindObjectOfType<InstructionController>();
         _gameManager = FindObjectOfType<GameManager>();
-        // _pipeController = FindObjectOfType<PipeController>();
-       
+        _blowController = FindObjectOfType<BlowingController>();
     }
-    private void Update()
-    {
-        GetComponent<BoxCollider>().enabled = true;
-    }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "MainCamera")
+        if(other.tag == "MainCamera" 
+       && _gameManager.currentState == GameManager.GameState.BlowStart)
         {
-           // _pipeController.heating = true;
-
             if (blowingSmaller != null)
             {
                 StopCoroutine(blowingSmaller);
                 blowingSmaller = null;
             }
-           // cable.SetActive(true);
-            _gameManager.SetState(GameManager.GameState.Blowing);
-            _instructionController.SetTextContent("Blowing...");
-            blowingBigger = LerpScale(sphere, sphere.transform.localScale, new Vector3(0.2f, 0.2f, 0.2f), 5);
-            StartCoroutine(blowingBigger);
-            float currentEmission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
-            StartCoroutine(glassMatController.LerpEmission(moltenGlass, currentEmission, 0.015f, 3));
+            _blowController.startBlowing();
+            glassBlowingChange();
         }   
     }
     
@@ -60,22 +45,19 @@ public class StrawController : MonoBehaviour
     {
         if (other.tag == "MainCamera")
         {
-          //  _pipeController.heating = false;
-         /*   if (blowingBigger != null)
-            {
-                StopCoroutine(blowingBigger);
-                blowingBigger = null;
-            }
-         */
-           // cable.SetActive(false);
-            _instructionController.SetTextContent("Blow Finished.");
-            _gameManager.SetState(GameManager.GameState.BlowFinish);
-            _gameManager.SetState(GameManager.GameState.Bat);
-            // StartCoroutine(LerpScale(sphere, sphere.transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), 3));
-            float currentEmission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
-            // StartCoroutine(glassMatController.LerpEmission(moltenGlass, currentEmission, 0.37f, 3));
+            _blowController.endBlowing();
         }
     }
+
+    public void glassBlowingChange()
+    {
+        blowingBigger = LerpScale(sphere, sphere.transform.localScale, new Vector3(0.2f, 0.2f, 0.2f), 5);
+        StartCoroutine(blowingBigger);
+        float currentEmission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
+        StartCoroutine(glassMatController.LerpEmission(moltenGlass, currentEmission, 0.015f, 3));
+    }
+
+
 
     private IEnumerator LerpScale(GameObject gameObject, Vector3 startScale, Vector3 targetScale, float duration)
     {
