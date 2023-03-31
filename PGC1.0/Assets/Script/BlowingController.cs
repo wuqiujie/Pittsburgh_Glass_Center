@@ -6,18 +6,22 @@ public class BlowingController : MonoBehaviour
 {
 
     private GameManager _gameManager;
+    private SoundManager _soundManager;
     public GameObject blowTool;
     public GameObject pipe;
     public GameObject moltenGlassRef;
-    private bool isBlowFinish = false;
- 
+    private bool isBlowFinish = false; 
 
     private InstructionController _instructionController;
+
+   
+    AudioSource audioSource;
 
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _instructionController = FindObjectOfType<InstructionController>();
+        _soundManager = FindObjectOfType<SoundManager>();
     }
 
 
@@ -54,7 +58,8 @@ public class BlowingController : MonoBehaviour
 
         _gameManager.SetState(GameManager.GameState.Blowing);
         _instructionController.SetTextContent("Blowing...");
-      
+        _soundManager.playBlowSound();
+       
     }
 
 

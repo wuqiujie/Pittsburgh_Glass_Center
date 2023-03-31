@@ -44,7 +44,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _EmissionGradient: 0
-    - _IOR: 1
+    - _IOR: -0.96
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

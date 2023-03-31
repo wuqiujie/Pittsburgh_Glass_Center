@@ -9,6 +9,7 @@ public class BatController : MonoBehaviour
     public GameObject dropGlass;
     private InstructionController _instructionController;
     private GameManager _gameManager;
+    private SoundManager _soundManager;
 
     public enum BatState
     {
@@ -23,7 +24,7 @@ public class BatController : MonoBehaviour
         currentState = BatState.BatStart;
         _instructionController = FindObjectOfType<InstructionController>();
         _gameManager = FindObjectOfType<GameManager>();
-       
+        _soundManager = FindObjectOfType<SoundManager>();
     }
 
     private void Update()
@@ -55,9 +56,8 @@ public class BatController : MonoBehaviour
     {
         if (other.tag == "pipe")
         {
-
-          //  _gameManager.SetState(GameManager.GameState.Blowing);
             _instructionController.SetTextContent("Hit");
+            _soundManager.playBatSound();
 
         }
     }

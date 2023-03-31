@@ -13,8 +13,11 @@ public class PipeController : MonoBehaviour
 
 
     public bool heating = false;
-    public GameObject Gloryhole;
+   // public GameObject Gloryhole;
     private float curremission;
+
+    private SoundManager _soundManager;
+
 
 
     // Start is called before the first frame update
@@ -25,6 +28,8 @@ public class PipeController : MonoBehaviour
         _instructionController = FindObjectOfType<InstructionController>();
         curremission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
         _gameManager = FindObjectOfType<GameManager>();
+        _soundManager = FindObjectOfType<SoundManager>();
+
     }
 
     // Update is called once per frame
@@ -50,17 +55,18 @@ public class PipeController : MonoBehaviour
             heating = true;
             _instructionController.SetTextContent("You got Molten glass");
             _gameManager.SetState(GameManager.GameState.FurnaceStart);
+           
         }
         if (other.tag == "gloryhole")
         {
             heating = true;
-            Debug.Log("gloryhole");
             // Gloryhole.GetComponent<GloryHoleController>().enabled = true;
             // moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 1);
             //StartCoroutine(_glassMatController.LerpEmission(moltenGlass, curremission, 0.5f, 3));
             moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 0.5f);
             _instructionController.SetTextContent("You reheat Molten glass,stay 3s");
             _gameManager.SetState(GameManager.GameState.GloryHoleStart);
+           
         }
        
         if (other.tag == "red" || other.tag == "green" || other.tag == "purple" || other.tag == "yellow" || other.tag == "blue" || other.tag == "white")
@@ -68,6 +74,8 @@ public class PipeController : MonoBehaviour
             _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
             _glassMatController.SetMatColor(_glassMat, other);
             //_instructionController.SetTextContent("Got color " + other.tag);
+            _soundManager.playColorSound();
+           
         }
  
     }
