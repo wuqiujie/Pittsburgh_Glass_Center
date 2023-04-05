@@ -21,7 +21,7 @@ public class BatController : MonoBehaviour
     public BatState currentState;
     void Start()
     {
-        currentState = BatState.BatStart;
+
         _instructionController = FindObjectOfType<InstructionController>();
         _gameManager = FindObjectOfType<GameManager>();
         _soundManager = FindObjectOfType<SoundManager>();
@@ -46,7 +46,8 @@ public class BatController : MonoBehaviour
 
     public void adjustPipeRotation()
     {
-        pipe.transform.position = new Vector3(7.251f, 2.63f, 2.542f);
+        pipe.transform.position = new Vector3(10.25f, 2.63f, 3.25f);
+
         pipe.transform.rotation = Quaternion.Euler(-180, 0, 0);
         currentState = BatState.hit;
     }
@@ -58,6 +59,7 @@ public class BatController : MonoBehaviour
         {
             _instructionController.SetTextContent("Hit");
             _soundManager.playBatSound();
+            currentState = BatState.BatStart;
 
         }
     }

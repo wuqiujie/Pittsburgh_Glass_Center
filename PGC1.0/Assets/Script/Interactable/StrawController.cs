@@ -24,8 +24,7 @@ public class StrawController : MonoBehaviour
         _gameManager = FindObjectOfType<GameManager>();
         _blowController = FindObjectOfType<BlowingController>();
     }
-
-
+ 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "MainCamera" 
@@ -41,20 +40,12 @@ public class StrawController : MonoBehaviour
         }   
     }
     
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "MainCamera")
-        {
-            _blowController.endBlowing();
-        }
-    }
-
     public void glassBlowingChange()
     {
         blowingBigger = LerpScale(sphere, sphere.transform.localScale, new Vector3(0.2f, 0.2f, 0.2f), 5);
         StartCoroutine(blowingBigger);
-        float currentEmission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
-        StartCoroutine(glassMatController.LerpEmission(moltenGlass, currentEmission, 0.015f, 3));
+        float currentEmission = sphere.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
+        StartCoroutine(glassMatController.LerpEmission(sphere, currentEmission, 0.0f, 5));
     }
 
 
@@ -68,6 +59,7 @@ public class StrawController : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+        _blowController.endBlowing();
         gameObject.transform.localScale = targetScale;
     }
     /*

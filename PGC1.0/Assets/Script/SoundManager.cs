@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip batSound;
     public AudioClip colorSound;
     public AudioClip blowSound;
+    public AudioClip moltenSound;
     AudioSource audioSource;
 
     void Start()
@@ -31,5 +32,9 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(blowSound, 1.0F);
 
+    }
+    public void playMoltenGlass()
+    {
+        audioSource.PlayOneShot(moltenSound, 1.0F);
     }
 }

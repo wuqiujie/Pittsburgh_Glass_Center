@@ -27,7 +27,8 @@ public class BlowingController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "pipe" && !isBlowFinish)
+        if (other.tag == "pipe" && !isBlowFinish 
+            && _gameManager.currentState == GameManager.GameState.GloryHoleEnd)
         {
             _gameManager.SetState(GameManager.GameState.BlowStart);
             blowTool.SetActive(true);
@@ -48,8 +49,9 @@ public class BlowingController : MonoBehaviour
 
     public void adjustPosition()
     {
-        pipe.transform.position = new Vector3(10.554f, 0.729f, 1.5f);
-        pipe.transform.rotation = Quaternion.Euler(-90, -180, 0);
+        pipe.transform.position = new Vector3(7.6f, 0.8f, 3f);
+
+        pipe.transform.rotation = Quaternion.Euler(-90, 0, 0);
        
     }
 

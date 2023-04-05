@@ -76,7 +76,7 @@ Material:
     - _Testing_Alpha: 1
     - _Testing_Transparency: 0
     m_Colors:
-    - _Color1: {r: 0.8113207, g: 0.8113207, b: 0.8113207, a: 0}
+    - _Color1: {r: 1, g: 1, b: 1, a: 0}
     - _Color2: {r: 1, g: 1, b: 1, a: 0}
     - _InsideEm: {r: 2, g: 1.7905759, b: 1.13089, a: 0}
     - _NoEm: {r: 0, g: 0, b: 0, a: 0}

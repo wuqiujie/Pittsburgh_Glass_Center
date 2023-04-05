@@ -14,7 +14,8 @@ public class BatStart : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "pipe")
+        if (other.tag == "pipe" 
+            && _gameManager.currentState == GameManager.GameState.BlowFinish)
         {
             _gameManager.SetState(GameManager.GameState.Bat);
         }

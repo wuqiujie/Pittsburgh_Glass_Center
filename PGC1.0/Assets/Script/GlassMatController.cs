@@ -19,6 +19,7 @@ public class GlassMatController : MonoBehaviour
     [SerializeField] private Color White;
 
     private InstructionController _instructionController;
+    private GameManager _gameManager;
 
     private int _colorIndex;
    
@@ -29,6 +30,7 @@ public class GlassMatController : MonoBehaviour
     {
         _colorIndex = 0;
         _instructionController = FindObjectOfType<InstructionController>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
    
@@ -47,7 +49,7 @@ public class GlassMatController : MonoBehaviour
                     break;
                 case 2:
                     material.SetColor("_Color2", color);
-                   // SwitchState();
+                    _gameManager.currentState = GameManager.GameState.ColorTable;
                     break;
                 default:
                     break;
@@ -98,12 +100,15 @@ public class GlassMatController : MonoBehaviour
 
     public IEnumerator LerpEmission(GameObject glass, float startVal, float endVal, float duration)
     {
+        Debug.Log("start lerp emis");
         float time = 0;
-        Material newMat = Instantiate(glass.GetComponent<MeshRenderer>().material);
-        glass.GetComponent<MeshRenderer>().material = newMat;
+        // Material newMat = Instantiate(glass.GetComponent<MeshRenderer>().material);
+        // glass.GetComponent<MeshRenderer>().material = newMat;
+        Material newMat = glass.GetComponent<MeshRenderer>().material;
         while (time < duration)
         {
             float emissionVal = Mathf.Lerp(startVal, endVal, time / duration);
+            Debug.Log(emissionVal);
             newMat.SetFloat("_EmissionGradient", emissionVal);
             time += Time.deltaTime;
             yield return null;

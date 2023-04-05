@@ -36,15 +36,16 @@ public class PipeController : MonoBehaviour
     void Update()
     {
         curremission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
-        // _instructionController.SetTextContent("current emission " + curremission);
         if (moltenGlass.GetComponent<MeshRenderer>().enabled 
             && curremission >=0.06f
             && heating ==false
+            && _gameManager.currentState != GameManager.GameState.BlowStart
             && _gameManager.currentState!= GameManager.GameState.Blowing)
         {
             _glassMatController.reduceEmission(moltenGlass);
           
         }
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,25 +56,22 @@ public class PipeController : MonoBehaviour
             heating = true;
             _instructionController.SetTextContent("You got Molten glass");
             _gameManager.SetState(GameManager.GameState.FurnaceStart);
-           
+            _soundManager.playMoltenGlass();
         }
         if (other.tag == "gloryhole")
         {
             heating = true;
-            // Gloryhole.GetComponent<GloryHoleController>().enabled = true;
-            // moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 1);
-            //StartCoroutine(_glassMatController.LerpEmission(moltenGlass, curremission, 0.5f, 3));
             moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 0.5f);
             _instructionController.SetTextContent("You reheat Molten glass,stay 3s");
             _gameManager.SetState(GameManager.GameState.GloryHoleStart);
-           
+            _soundManager.playMoltenGlass();
+
         }
        
         if (other.tag == "red" || other.tag == "green" || other.tag == "purple" || other.tag == "yellow" || other.tag == "blue" || other.tag == "white")
         {
             _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
             _glassMatController.SetMatColor(_glassMat, other);
-            //_instructionController.SetTextContent("Got color " + other.tag);
             _soundManager.playColorSound();
            
         }
