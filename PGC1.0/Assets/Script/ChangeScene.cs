@@ -6,11 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-  
-
-    public  void ToAnotherThing()
+    public GameObject glass;
+    public GameObject camera;
+    public void changeScene()
     {
-        SceneManager.LoadScene("HotShop", LoadSceneMode.Additive);
+        SceneManager.LoadScene("ArtGallery_Scene", LoadSceneMode.Additive);
     }
+    private void Awake()
+    {
+        DontDestroyOnLoad(glass);
+        DontDestroyOnLoad(camera);
+    }
+
 
 }

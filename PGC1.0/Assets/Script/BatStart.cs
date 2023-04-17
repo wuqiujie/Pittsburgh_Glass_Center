@@ -5,10 +5,12 @@ using UnityEngine;
 public class BatStart : MonoBehaviour
 {
     private GameManager _gameManager;
+ 
 
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+
     }
 
 

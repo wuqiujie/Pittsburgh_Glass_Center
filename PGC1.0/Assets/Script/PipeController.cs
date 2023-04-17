@@ -5,11 +5,15 @@ using UnityEngine;
 public class PipeController : MonoBehaviour
 {
     public GameObject moltenGlass;
+    public GameObject pipe;
 
     private GlassMatController _glassMatController;
-    private InstructionController _instructionController;
+    //private InstructionController _instructionController;
     private Material _glassMat;
     private GameManager _gameManager;
+    private BlazeController _blazeController;
+    //[SerializeField] private GameObject blaze_model;
+   // private Animator animator;
 
 
     public bool heating = false;
@@ -25,10 +29,12 @@ public class PipeController : MonoBehaviour
     {
         _glassMatController = FindObjectOfType<GlassMatController>();
        
-        _instructionController = FindObjectOfType<InstructionController>();
+        //_instructionController = FindObjectOfType<InstructionController>();
         curremission = moltenGlass.GetComponent<MeshRenderer>().material.GetFloat("_EmissionGradient");
         _gameManager = FindObjectOfType<GameManager>();
         _soundManager = FindObjectOfType<SoundManager>();
+        _blazeController = FindObjectOfType<BlazeController>();
+        //animator = blaze_model.GetComponent<Animator>();
 
     }
 
@@ -45,51 +51,84 @@ public class PipeController : MonoBehaviour
             _glassMatController.reduceEmission(moltenGlass);
           
         }
+
+        if (_gameManager.currentState  == GameManager.GameState.FurnaceStart)
+        {
+            rotatePipe();
+        }
        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "furnace")
+        if (other.tag == "furnace"
+            && _gameManager.currentState == GameManager.GameState.GameStart)
         {
             moltenGlass.GetComponent<MeshRenderer>().enabled = true;
             heating = true;
-            _instructionController.SetTextContent("You got Molten glass");
+           // _instructionController.SetTextContent("You got Molten glass");
             _gameManager.SetState(GameManager.GameState.FurnaceStart);
             _soundManager.playMoltenGlass();
+           
         }
-        if (other.tag == "gloryhole")
+        if(other.tag== "water"
+            && _gameManager.currentState == GameManager.GameState.FurnaceEnd)
         {
-            heating = true;
-            moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 0.5f);
-            _instructionController.SetTextContent("You reheat Molten glass,stay 3s");
-            _gameManager.SetState(GameManager.GameState.GloryHoleStart);
-            _soundManager.playMoltenGlass();
+            _gameManager.SetState(GameManager.GameState.WaterStart);
+        }
 
-        }
-       
-        if (other.tag == "red" || other.tag == "green" || other.tag == "purple" || other.tag == "yellow" || other.tag == "blue" || other.tag == "white")
+        if ((other.tag == "red" || other.tag == "green" || other.tag == "purple" 
+            || other.tag == "yellow" || other.tag == "blue" || other.tag == "white")
+            && 
+            (_gameManager.currentState == GameManager.GameState.WaterFinish
+            || _gameManager.currentState == GameManager.GameState.ColorStart))
         {
+            _gameManager.SetState(GameManager.GameState.ColorStart);
             _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
             _glassMatController.SetMatColor(_glassMat, other);
             _soundManager.playColorSound();
            
         }
- 
+        if (other.tag == "gloryhole"
+             && _gameManager.currentState == GameManager.GameState.ColorEnd)
+        {
+            heating = true;
+            moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 0.5f);
+           // _instructionController.SetTextContent("You reheat Molten glass,stay 3s");
+            _gameManager.SetState(GameManager.GameState.GloryHoleStart);
+            _soundManager.playMoltenGlass();
+
+        }
+
     }
     
     private void OnTriggerExit(Collider other)
     {
-        if(other .tag == "furnace")
+        if(other.tag == "furnace"
+            && _gameManager.currentState == GameManager.GameState.FurnaceStart)
         {
             heating = false;
+            Debug.Log("speak");
+            _blazeController.SetActionFinished();
             _gameManager.SetState(GameManager.GameState.FurnaceEnd);     
         }
+        if (other.tag == "water"
+            && _gameManager.currentState == GameManager.GameState.WaterStart)
+        {
+            _blazeController.SetActionFinished();
+            _gameManager.SetState(GameManager.GameState.WaterFinish);
+        }
 
-        if (other.tag == "gloryhole")
+        if (other.tag == "gloryhole"
+            && _gameManager.currentState == GameManager.GameState.GloryHoleStart)
         {
             heating = false;
+            _blazeController.SetActionFinished();
             _gameManager.SetState(GameManager.GameState.GloryHoleEnd);
         }
+    }
+    private void rotatePipe()
+    {
+        pipe.transform.Rotate(0.0f, 0.0f, 1.0f, Space.World);
     }
 }

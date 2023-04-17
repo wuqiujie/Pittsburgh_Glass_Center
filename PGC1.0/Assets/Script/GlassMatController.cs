@@ -18,8 +18,9 @@ public class GlassMatController : MonoBehaviour
     [SerializeField] private Color Purple;
     [SerializeField] private Color White;
 
-    private InstructionController _instructionController;
+  //  private InstructionController _instructionController;
     private GameManager _gameManager;
+    private BlazeController _blazeController;
 
     private int _colorIndex;
    
@@ -29,8 +30,9 @@ public class GlassMatController : MonoBehaviour
     void Start()
     {
         _colorIndex = 0;
-        _instructionController = FindObjectOfType<InstructionController>();
+       // _instructionController = FindObjectOfType<InstructionController>();
         _gameManager = FindObjectOfType<GameManager>();
+        _blazeController = FindObjectOfType<BlazeController>();
     }
 
    
@@ -49,7 +51,8 @@ public class GlassMatController : MonoBehaviour
                     break;
                 case 2:
                     material.SetColor("_Color2", color);
-                    _gameManager.currentState = GameManager.GameState.ColorTable;
+                    _blazeController.SetActionFinished();
+                    _gameManager.currentState = GameManager.GameState.ColorEnd;
                     break;
                 default:
                     break;
@@ -68,27 +71,27 @@ public class GlassMatController : MonoBehaviour
             {
                 case "red":
                     Debug.Log("pick reeedd");
-                    _instructionController.SetTextContent("Red picked.");
+                    //_instructionController.SetTextContent("Red picked.");
                     return Red;
                 case "blue":
                     Debug.Log("pick bluuue");
-                    _instructionController.SetTextContent("Blue picked.");
+                   // _instructionController.SetTextContent("Blue picked.");
                     return Blue;
                 case "yellow":
                     Debug.Log("pick yellow");
-                    _instructionController.SetTextContent("Yellow picked.");
+                   // _instructionController.SetTextContent("Yellow picked.");
                     return Yellow;
                 case "green":
                     Debug.Log("pick greeeeen");
-                    _instructionController.SetTextContent("Green picked.");
+                   // _instructionController.SetTextContent("Green picked.");
                     return Green;
                 case "purple":
                     Debug.Log("pick purple");
-                    _instructionController.SetTextContent("Purple picked.");
+                  ///  _instructionController.SetTextContent("Purple picked.");
                     return Purple;
                 case "white":
                     Debug.Log("pick white");
-                    _instructionController.SetTextContent("White picked.");
+                   // _instructionController.SetTextContent("White picked.");
                     return White;
                 default:
                     return Color.black;

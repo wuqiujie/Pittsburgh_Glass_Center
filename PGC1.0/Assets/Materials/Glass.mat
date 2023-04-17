@@ -70,7 +70,7 @@ Material:
     m_Floats:
     - _EmissionGradient: 0.5
     - _FresnelPower: 1.039
-    - _IOR: -0.99
+    - _IOR: -1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Testing_Alpha: 1

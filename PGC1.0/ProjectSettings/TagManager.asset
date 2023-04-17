@@ -17,6 +17,9 @@ TagManager:
   - right
   - pipe
   - white
+  - SamplesInfoPanel
+  - water
+  - camera
   layers:
   - Default
   - TransparentFX

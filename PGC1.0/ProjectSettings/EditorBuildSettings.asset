@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Art Gallery.unity
-    guid: b67bf19b2409aec418ace5dcc65d47f4
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c05221adacf592d439de09234bb0f2c5
   - enabled: 1
     path: Assets/Scenes/HotShop.unity
     guid: b25d42c1e0c025f47bf34330599b1501
+  - enabled: 1
+    path: Assets/Scenes/ArtGallery_Scene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/Art Gallery.unity
+    guid: b67bf19b2409aec418ace5dcc65d47f4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b89ddd0539180ee44aa6ca7f0d09f483,
       type: 2}

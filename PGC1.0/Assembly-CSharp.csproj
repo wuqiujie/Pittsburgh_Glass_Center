@@ -142,12 +142,12 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandlerThumbstick.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainCrossingController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\HandMeshMask.cs" />
-    <Compile Include="Assets\Script\InstructionController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionBlink.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\DisableIfTest.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\BouncingBallLogic.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\ShowNativePropertyTest.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionInstant.cs" />
+    <Compile Include="Assets\Scripts\BlazeController.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Core\MetaAttributes\MetaAttribute.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\AnimatorParamTest.cs" />
     <Compile Include="Assets\Script\Interactable\StrawController.cs" />
@@ -285,6 +285,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughStyler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorUIManager.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\FoldoutTest.cs" />
+    <Compile Include="Assets\Script\ArtGalleryManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
