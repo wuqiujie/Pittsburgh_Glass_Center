@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {   
         GameStart,
+        Pipe,
         FurnaceStart,
         FurnaceEnd,
         WaterStart,

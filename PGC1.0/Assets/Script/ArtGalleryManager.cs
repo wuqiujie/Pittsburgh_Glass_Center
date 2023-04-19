@@ -12,7 +12,7 @@ public class ArtGalleryManager : MonoBehaviour
     {
         
         glass = GameObject.FindGameObjectWithTag("glass");
-        glass.transform.position = new Vector3(4f, 1.9f, -7.48199987f);
+        glass.transform.position = new Vector3(4f, 1.95f, -7.48199987f);
 
 
         camera = GameObject.FindGameObjectWithTag("camera");

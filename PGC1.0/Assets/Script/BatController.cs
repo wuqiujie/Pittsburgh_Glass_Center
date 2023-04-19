@@ -8,6 +8,7 @@ public class BatController : MonoBehaviour
 
     public GameObject pipe;
     public GameObject dropGlass;
+
    // private InstructionController _instructionController;
     private GameManager _gameManager;
     private SoundManager _soundManager;
@@ -50,7 +51,7 @@ public class BatController : MonoBehaviour
         if(currentState == BatState.BatEnd)
         {
             //_gameManager.currentState == GameManager.GameState.BatEnd;
-            _blazeController = FindObjectOfType<BlazeController>();
+            //_blazeController = FindObjectOfType<BlazeController>();
         }
     }
 
@@ -80,12 +81,11 @@ public class BatController : MonoBehaviour
         if (other.tag == "pipe")
         {
            // _instructionController.SetTextContent("Finish using bat");
-            StartCoroutine(LerpScale(dropGlass, dropGlass.transform.localPosition, new Vector3(0.0f, 1.8f, 0.0f), 3));
+            StartCoroutine(LerpScale(dropGlass, dropGlass.transform.localPosition, new Vector3(0.0f, 1.733f, 0.0f), 3));
             currentState = BatState.BatEnd;
             _gameManager.currentState = GameManager.GameState.GameEnd;
-            
-            
-            _blazeController.SetActionFinished();
+
+            _blazeController.SpeakHandle();
             animator.SetTrigger("EndBat");
             endButton.SetActive(true);
         

@@ -20,6 +20,7 @@ TagManager:
   - SamplesInfoPanel
   - water
   - camera
+  - hand
   layers:
   - Default
   - TransparentFX

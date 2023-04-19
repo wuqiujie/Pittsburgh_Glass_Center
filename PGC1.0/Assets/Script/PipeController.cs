@@ -6,6 +6,7 @@ public class PipeController : MonoBehaviour
 {
     public GameObject moltenGlass;
     public GameObject pipe;
+    public GameObject frit;
 
     private GlassMatController _glassMatController;
     //private InstructionController _instructionController;
@@ -56,18 +57,28 @@ public class PipeController : MonoBehaviour
         {
             rotatePipe();
         }
-       
+
+    }
+    public void grabPipe()
+    {
+        if(_gameManager.currentState == GameManager.GameState.GameStart)
+        {
+            _blazeController.SetActionFinished();
+            _gameManager.SetState(GameManager.GameState.Pipe);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "furnace"
-            && _gameManager.currentState == GameManager.GameState.GameStart)
+            && _gameManager.currentState == GameManager.GameState.Pipe)
         {
             moltenGlass.GetComponent<MeshRenderer>().enabled = true;
             heating = true;
            // _instructionController.SetTextContent("You got Molten glass");
             _gameManager.SetState(GameManager.GameState.FurnaceStart);
+
             _soundManager.playMoltenGlass();
            
         }
@@ -87,6 +98,8 @@ public class PipeController : MonoBehaviour
             _glassMat = moltenGlass.GetComponent<MeshRenderer>().material;
             _glassMatController.SetMatColor(_glassMat, other);
             _soundManager.playColorSound();
+            other.GetComponent<MeshCollider>().enabled = false;
+            frit.SetActive(true);
            
         }
         if (other.tag == "gloryhole"
@@ -96,8 +109,9 @@ public class PipeController : MonoBehaviour
             moltenGlass.GetComponent<MeshRenderer>().material.SetFloat("_EmissionGradient", 0.5f);
            // _instructionController.SetTextContent("You reheat Molten glass,stay 3s");
             _gameManager.SetState(GameManager.GameState.GloryHoleStart);
+            _blazeController.Speak123();
             _soundManager.playMoltenGlass();
-
+            frit.SetActive(false);
         }
 
     }

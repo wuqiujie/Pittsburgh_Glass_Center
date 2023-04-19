@@ -286,6 +286,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorUIManager.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\FoldoutTest.cs" />
     <Compile Include="Assets\Script\ArtGalleryManager.cs" />
+    <Compile Include="Assets\Scripts\BlazeGallery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />

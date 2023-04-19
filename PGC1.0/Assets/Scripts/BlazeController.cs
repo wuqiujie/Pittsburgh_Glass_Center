@@ -13,13 +13,13 @@ public class BlazeController : MonoBehaviour
     [SerializeField] private GameObject dialogueContent;
     [SerializeField] private GameObject readyButton;
     [SerializeField] private GameObject blaze_model;
-    private Animator animator;
 
     private Vector3[] TargetPositions;
     private List<string[]> Scripts;
     private List<AudioClip[]> Scripts_Sound;
 
     [Header("Move Positions")]
+    public Vector3 PipePos;
     public Vector3 FurnacePos;
     public Vector3 WaterPos;
     public Vector3 ColorPos;
@@ -27,11 +27,17 @@ public class BlazeController : MonoBehaviour
     public Vector3 BenchPos;
     public Vector3 BatPos;
 
+    [SerializeField] private string[] Instruction_Summary;
+
     [Header("Welcome")]
     [SerializeField] private string[] s_Welcome;
     [SerializeField] private AudioClip[] ac_Welcome;
     [SerializeField] private string s_Start;
     [SerializeField] private AudioClip ac_Start;
+
+    [Header("Pipe")]
+    [SerializeField] private string[] s_Pipe;
+    [SerializeField] private AudioClip[] ac_Pipe;
 
     [Header("Furnace")]
     [SerializeField] private string[] s_Furnace;
@@ -48,6 +54,8 @@ public class BlazeController : MonoBehaviour
     [Header("Glory")]
     [SerializeField] private string[] s_Glory;
     [SerializeField] private AudioClip[] ac_Glory;
+    [SerializeField] private string[] s_123;
+    [SerializeField] private AudioClip[] ac_123;
 
     [Header("Bench")]
     [SerializeField] private string[] s_Bench;
@@ -67,6 +75,7 @@ public class BlazeController : MonoBehaviour
 
     private int current_pos_index = 0;
     private AudioSource audioSource;
+    private Animator animator;
     private bool isCurrentActionFinished = false;
     private bool isSpeakFinished = false;
   
@@ -74,7 +83,7 @@ public class BlazeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TargetPositions = new Vector3[7];
+        TargetPositions = new Vector3[8];
         Scripts = new List<string[]>();
         Scripts_Sound = new List<AudioClip[]>();
         audioSource = GetComponent<AudioSource>();
@@ -89,16 +98,18 @@ public class BlazeController : MonoBehaviour
         Vector3 PlayerPos = Camera.main.transform.position;
         Vector3 BlazeStartPos = new Vector3(PlayerPos.x, 0, PlayerPos.z - 1);
         TargetPositions[0] = BlazeStartPos;
-        TargetPositions[1] = FurnacePos;
-        TargetPositions[2] = WaterPos;
-        TargetPositions[3] = ColorPos;
-        TargetPositions[4] = GloryPos;
-        TargetPositions[5] = BenchPos;
-        TargetPositions[6] = BatPos;
+        TargetPositions[1] = PipePos;
+        TargetPositions[2] = FurnacePos;
+        TargetPositions[3] = WaterPos;
+        TargetPositions[4] = ColorPos;
+        TargetPositions[5] = GloryPos;
+        TargetPositions[6] = BenchPos;
+        TargetPositions[7] = BatPos;
     }
     private void setScripts()
     {
         Scripts.Add(s_Welcome);
+        Scripts.Add(s_Pipe);
         Scripts.Add(s_Furnace);
         Scripts.Add(s_Water);
         Scripts.Add(s_Color);
@@ -106,6 +117,7 @@ public class BlazeController : MonoBehaviour
         Scripts.Add(s_Bench);
         Scripts.Add(s_Bat);
         Scripts_Sound.Add(ac_Welcome);
+        Scripts_Sound.Add(ac_Pipe);
         Scripts_Sound.Add(ac_Furnace);
         Scripts_Sound.Add(ac_Water);
         Scripts_Sound.Add(ac_Color);
@@ -123,6 +135,7 @@ public class BlazeController : MonoBehaviour
     // Move Blaze from A to B
     public IEnumerator Move()
     {
+        dialogueBubble.SetActive(false);
 
         // Rotate to face target pos before movement;
         Vector3 targetPos = TargetPositions[current_pos_index];
@@ -194,12 +207,14 @@ public class BlazeController : MonoBehaviour
         if (isCurrentActionFinished)
             StartCoroutine(SpeakFeedback());
 
-        dialogueBubble.SetActive(false);
+        // dialogueBubble.SetActive(false);
         isSpeakFinished = true;
+        dialogueContent.GetComponent<TMPro.TextMeshPro>().text = Instruction_Summary[current_pos_index];
 
         // if in the welcoming stage
         if (current_pos_index == 0)
         {
+            dialogueBubble.SetActive(false);
             readyButton.SetActive(true);
         }
     }
@@ -217,7 +232,12 @@ public class BlazeController : MonoBehaviour
         MoveToNextStage();
         readyButton.SetActive(false);
     }
-    
+
+    public void Speak123()
+    {
+        StartCoroutine(SpeakNext(s_123, ac_123));
+    }
+
     public void SpeakBlow()
     {
         StartCoroutine(SpeakNext(s_Blow, ac_Blow));

@@ -8,9 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: glass frit
-  m_Shader: {fileID: -6465566751694194690, guid: 0783d937b80e3c74780fcd77a7a35343, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
+  m_Shader: {fileID: -6465566751694194690, guid: 044ba8c02189f954fa2409a34094c9fb,
+    type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -19,12 +18,11 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _SampleTexture2D_0384154fb60844bb8d47ece2fa48a404_Texture_1:
-        m_Texture: {fileID: 2800000, guid: e4094c621ebf4f4418a4400ed0154cf7, type: 3}
+        m_Texture: {fileID: 2800000, guid: fb3f9f4250e388e4582d92733c817674, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_04d1aa02623042ed865e9b02a3e67cb6_Texture_1:
@@ -32,15 +30,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_e8cfce6d0e2c483d82c8ff1c96c600bd_Texture_1:
-        m_Texture: {fileID: 2800000, guid: a3497909929faa34db7f17c4fdf73cfe, type: 3}
+        m_Texture: {fileID: 2800000, guid: 23028460a419e744ba0fd446181db338, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_f3670adc52bc4f8da6bb595529298b78_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 46757a7fe6910ce4e8bb47382a9a438e, type: 3}
+        m_Texture: {fileID: 2800000, guid: d07894730c65af74aa097f1fba796be4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_fc7bddf696a5439fb761ad03e553732e_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 9492be6305769dd43bfc300f8aa17b25, type: 3}
+        m_Texture: {fileID: 2800000, guid: d698b613962550740b1c859bac73c1b4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -60,7 +58,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0.3028361, g: 0.78586966, b: 0.8301887, a: 0}
+    - _Color: {r: 0.6509434, g: 0.20002034, b: 0.20002034, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &793104117121977513
 MonoBehaviour:
