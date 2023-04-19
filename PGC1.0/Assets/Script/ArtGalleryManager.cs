@@ -17,6 +17,7 @@ public class ArtGalleryManager : MonoBehaviour
 
         camera = GameObject.FindGameObjectWithTag("camera");
         camera.transform.position = new Vector3(4.19700003f, 0.852999985f, -6.52699995f);
+        camera.transform.rotation = Quaternion.Euler(0, -180, 0);
     }
 
     // Update is called once per frame
