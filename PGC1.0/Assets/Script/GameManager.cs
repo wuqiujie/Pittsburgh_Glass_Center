@@ -28,7 +28,10 @@ public class GameManager : MonoBehaviour
         BlowStart,
         Blowing,
         BlowFinish,
-        Bat,
+        BatStart,
+        BatAdjust,
+        BatHit,
+        BatEnd,
         GameEnd
     }
 

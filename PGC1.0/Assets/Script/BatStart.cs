@@ -19,7 +19,7 @@ public class BatStart : MonoBehaviour
         if (other.tag == "pipe" 
             && _gameManager.currentState == GameManager.GameState.BlowFinish)
         {
-            _gameManager.SetState(GameManager.GameState.Bat);
+            _gameManager.SetState(GameManager.GameState.BatStart);
         }
     }
 }

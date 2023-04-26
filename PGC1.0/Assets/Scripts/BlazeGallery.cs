@@ -41,8 +41,7 @@ public class BlazeGallery : MonoBehaviour
         dialogueBubble.SetActive(false);
 
         // Rotate to face target pos before movement;
-        Vector3 PlayerPos = Camera.main.transform.position;
-        Vector3 targetPos = new Vector3(PlayerPos.x, 1, PlayerPos.z - 2);
+        Vector3 targetPos = new Vector3(4.02f, 1, -8.33f);
         Vector3 lookDir = gameObject.transform.position - targetPos;
         lookDir.y = 0; // rotate at Y axis
         Quaternion targetRot = Quaternion.LookRotation(lookDir);

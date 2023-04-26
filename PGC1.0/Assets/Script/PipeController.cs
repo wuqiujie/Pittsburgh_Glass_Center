@@ -7,6 +7,7 @@ public class PipeController : MonoBehaviour
     public GameObject moltenGlass;
     public GameObject pipe;
     public GameObject frit;
+    public GameObject waterFountain;
 
     private GlassMatController _glassMatController;
     //private InstructionController _instructionController;
@@ -55,7 +56,7 @@ public class PipeController : MonoBehaviour
 
         if (_gameManager.currentState  == GameManager.GameState.FurnaceStart)
         {
-            rotatePipe();
+           // rotatePipe();
         }
 
     }
@@ -74,11 +75,11 @@ public class PipeController : MonoBehaviour
         if (other.tag == "furnace"
             && _gameManager.currentState == GameManager.GameState.Pipe)
         {
+            rotatePipe();
             moltenGlass.GetComponent<MeshRenderer>().enabled = true;
             heating = true;
            // _instructionController.SetTextContent("You got Molten glass");
             _gameManager.SetState(GameManager.GameState.FurnaceStart);
-
             _soundManager.playMoltenGlass();
            
         }
@@ -86,6 +87,8 @@ public class PipeController : MonoBehaviour
             && _gameManager.currentState == GameManager.GameState.FurnaceEnd)
         {
             _gameManager.SetState(GameManager.GameState.WaterStart);
+            _soundManager.playWater();
+
         }
 
         if ((other.tag == "red" || other.tag == "green" || other.tag == "purple" 
@@ -122,15 +125,16 @@ public class PipeController : MonoBehaviour
             && _gameManager.currentState == GameManager.GameState.FurnaceStart)
         {
             heating = false;
-            Debug.Log("speak");
             _blazeController.SetActionFinished();
-            _gameManager.SetState(GameManager.GameState.FurnaceEnd);     
+            _gameManager.SetState(GameManager.GameState.FurnaceEnd);
+            waterFountain.SetActive(true);
         }
         if (other.tag == "water"
             && _gameManager.currentState == GameManager.GameState.WaterStart)
         {
             _blazeController.SetActionFinished();
             _gameManager.SetState(GameManager.GameState.WaterFinish);
+            waterFountain.SetActive(false);
         }
 
         if (other.tag == "gloryhole"

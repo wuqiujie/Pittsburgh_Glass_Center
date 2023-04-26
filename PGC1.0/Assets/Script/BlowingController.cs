@@ -35,6 +35,7 @@ public class BlowingController : MonoBehaviour
         if (other.tag == "pipe" && !isBlowFinish 
             && _gameManager.currentState == GameManager.GameState.GloryHoleEnd)
         {
+            _soundManager.playMagnetic();
             _gameManager.SetState(GameManager.GameState.BlowStart);
             blowTool.SetActive(true);
             adjustPosition();
@@ -55,6 +56,7 @@ public class BlowingController : MonoBehaviour
 
     public void adjustPosition()
     {
+   
         pipe.transform.position = new Vector3(7.6f, 0.8f, 3f);
         pipe.transform.rotation = Quaternion.Euler(-90, 0, 0);
        

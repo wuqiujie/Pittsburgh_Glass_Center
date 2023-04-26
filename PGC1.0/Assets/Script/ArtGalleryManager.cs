@@ -11,7 +11,7 @@ public class ArtGalleryManager : MonoBehaviour
     void Start()
     {
         
-        glass = GameObject.FindGameObjectWithTag("glass");
+        glass = GameObject.FindGameObjectWithTag("glassBaba");
         glass.transform.position = new Vector3(4f, 1.95f, -7.48199987f);
 
 

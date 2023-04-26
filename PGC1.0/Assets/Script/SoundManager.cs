@@ -11,6 +11,12 @@ public class SoundManager : MonoBehaviour
     public AudioClip colorSound;
     public AudioClip blowSound;
     public AudioClip moltenSound;
+
+    public AudioClip containerSound;
+    public AudioClip glassOffSound;
+    public AudioClip magneticSound;
+    public AudioClip waterSound;
+
     AudioSource audioSource;
 
     void Start()
@@ -37,4 +43,24 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(moltenSound, 1.0F);
     }
+
+
+    public void playWater()
+    {
+        audioSource.PlayOneShot(waterSound, 0.1F);
+    }
+
+    public void playContainer()
+    {
+        audioSource.PlayOneShot(containerSound, 1.0F);
+    }
+    public void playGlassOff()
+    {
+        audioSource.PlayOneShot(glassOffSound, 1.0F);
+    }
+    public void playMagnetic()
+    {
+        audioSource.PlayOneShot(magneticSound, 1.0F);
+    }
+
 }

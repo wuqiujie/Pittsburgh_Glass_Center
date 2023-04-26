@@ -168,6 +168,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrackSegment.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\_NaughtyScriptableObject.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandlerHMD.cs" />
+    <Compile Include="Assets\Scripts\BlazeGallery.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Core\MetaAttributes\IGroupAttribute.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\HandsActiveChecker.cs" />
     <Compile Include="Assets\Script\BatStart.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\VolumeAndPlaneSwitcher.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\CustomHands\Scripts\HandPose.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\EnableUnpremultipliedAlpha.cs" />
+    <Compile Include="Assets\Script\ArtGalleryManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimVisualLaser.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Core\DrawerAttributes\LayerAttribute.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\BoxGroupTest.cs" />
@@ -285,8 +287,6 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughStyler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorUIManager.cs" />
     <Compile Include="Assets\Scripts\PhysicCalbes\Scripts\NaughtyAttributes-2.1.4\Scripts\Test\FoldoutTest.cs" />
-    <Compile Include="Assets\Script\ArtGalleryManager.cs" />
-    <Compile Include="Assets\Scripts\BlazeGallery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />

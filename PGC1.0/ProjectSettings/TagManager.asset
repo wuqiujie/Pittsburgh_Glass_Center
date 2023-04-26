@@ -21,6 +21,7 @@ TagManager:
   - water
   - camera
   - hand
+  - glassBaba
   layers:
   - Default
   - TransparentFX

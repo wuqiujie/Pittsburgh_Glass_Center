@@ -117,7 +117,7 @@ public class GlassMatController : MonoBehaviour
             yield return null;
         }
 
-        newMat.SetFloat("_EmissionGradient", endVal);
+        newMat.SetFloat("_EmissionGradient", 0);
     }
 
     public void reduceEmission(GameObject glass)
