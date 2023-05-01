@@ -8,12 +8,14 @@ public class PipeController : MonoBehaviour
     public GameObject pipe;
     public GameObject frit;
     public GameObject waterFountain;
+    public GameObject arrow;
 
     private GlassMatController _glassMatController;
     //private InstructionController _instructionController;
     private Material _glassMat;
     private GameManager _gameManager;
     private BlazeController _blazeController;
+ 
     //[SerializeField] private GameObject blaze_model;
    // private Animator animator;
 
@@ -58,6 +60,8 @@ public class PipeController : MonoBehaviour
         {
            // rotatePipe();
         }
+
+        rotateArrow();
 
     }
     public void grabPipe()
@@ -148,5 +152,11 @@ public class PipeController : MonoBehaviour
     private void rotatePipe()
     {
         pipe.transform.Rotate(0.0f, 0.0f, 1.0f, Space.World);
+    }
+    public void rotateArrow()
+    {
+
+       arrow.transform.Rotate(0.0f, -1.0f, 0.0f, Space.Self);
+     
     }
 }
