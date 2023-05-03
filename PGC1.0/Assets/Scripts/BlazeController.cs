@@ -162,6 +162,8 @@ public class BlazeController : MonoBehaviour
         lookDir = gameObject.transform.position - Camera.main.transform.position;
         lookDir.y = 0; // rotate at Y axis
         targetRot = Quaternion.LookRotation(lookDir);
+        if (current_pos_index == 6)
+            targetRot = new Quaternion(0, -90, 0, 0);
         // in the bat state, rotate to face forward
         if (current_pos_index == 7)
             targetRot = new Quaternion(0, 0, 0, 0);

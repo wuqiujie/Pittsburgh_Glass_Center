@@ -10,6 +10,8 @@ public class BlowingController : MonoBehaviour
     public GameObject blowTool;
     public GameObject pipe;
     public GameObject moltenGlassRef;
+    public GameObject jack;
+
     private bool isBlowFinish = false;
     private BlazeController _blazeController;
    // private InstructionController _instructionController;
@@ -41,6 +43,7 @@ public class BlowingController : MonoBehaviour
             adjustPosition();
             _blazeController.SpeakBlow();
             animator.SetTrigger("StartBlow");
+            jack.SetActive(true);
 
         }
     }
@@ -79,7 +82,7 @@ public class BlowingController : MonoBehaviour
         moltenGlassRef.SetActive(false);
         blowTool.SetActive(false);
         isBlowFinish = true;
-
+        jack.SetActive(false);
         animator.SetTrigger("EndBlow");
         _blazeController.SetActionFinished();
         

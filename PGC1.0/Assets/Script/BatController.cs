@@ -85,7 +85,8 @@ public class BatController : MonoBehaviour
             _gameManager.SetState(GameManager.GameState.BatEnd);
             _blazeController.SpeakHandle();
             animator.SetTrigger("EndBat");
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            gameObject.GetComponent<BoxCollider>().enabled = false;
         }
 
 

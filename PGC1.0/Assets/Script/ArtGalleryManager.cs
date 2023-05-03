@@ -10,7 +10,7 @@ public class ArtGalleryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         glass = GameObject.FindGameObjectWithTag("glassBaba");
         glass.transform.position = new Vector3(4f, 1.95f, -7.48199987f);
 
@@ -23,6 +23,12 @@ public class ArtGalleryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
